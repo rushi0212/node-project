@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Checkout'){
       steps {
-	git branch: 'main';
+	git branch: 'main',
 	url : 'https://github.com/rushi0212/node-project.git'
       }
     }
