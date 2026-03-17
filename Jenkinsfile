@@ -2,7 +2,8 @@ pipeline {
   agent any
 
   environment {
-    DOCKER_CREDENTIALS = credentials('dockerhub-credentials')
+    DOCKER_CREDENTIALS_PSW = credentials('DOCKER_CREDENTIALS_PSW')
+	DOCKER_CREDENTIALS_USR = credentials('DOCKER_CREDENTIALS_USR')
   }
   stages {
     stage('Checkout'){
