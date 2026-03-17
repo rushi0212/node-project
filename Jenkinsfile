@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Checkout'){
       steps {
-	git branch: 'main;
+	git branch: 'main';
 	url : 'https://github.com/rushi0212/node-project.git'
       }
     }
@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Push to DockerHub'){
       steps{
-	sh ' docker push rushi1501/node-project'
+	sh 'docker push rushi1501/node-project'
       }
     }
   }
