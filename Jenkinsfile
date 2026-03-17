@@ -27,9 +27,14 @@ pipeline {
 	sh 'docker push rushi1501/node-project'
       }
     }
-	stage('Run container'){
+	stage('K8s'){
 		steps{
-			sh 'docker run -d -p 3000:3000 rushi1501/node-project'
+			withCredentials([file(credentialsId: 'kubeconfig-minikube', variable: 'KUBECONFIG')]) {
+            sh '''
+            kubectl apply -f deployment.yml
+            kubectl apply -f service.yml
+            '''
+        	}
 		}
 	}
   }
