@@ -27,6 +27,11 @@ pipeline {
 	sh 'docker push rushi1501/node-project'
       }
     }
+	stage('Run container'){
+		steps{
+			sh 'docker run -d -p 3000:3000 rushi1501/node-project'
+		}
+	}
   }
   post {
     always {
